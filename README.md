@@ -1,3 +1,4 @@
+
 # Diet Analysis Service
 
 This is a Spring Boot application built with Java 21 that analyzes food consumption data.
@@ -12,7 +13,95 @@ This is a Spring Boot application built with Java 21 that analyzes food consumpt
 3. Run: `./mvnw spring-boot:run`
 4. Access endpoints at `localhost:8080`.
 
-## Endpoints
-1. **Average Calories (Purchased):** `GET /api/meals/analysis/average-calories`
-2. **Top Low-Cal Favorites:** `GET /api/meals/analysis/low-cal-favorites`
-3. **Best Protein Value:** `GET /api/meals/analysis/protein-value`
+---
+
+# API Documentation
+A Postman collection is included in this repository for easy testing.
+
+**File:** `Tarkasoft_Assignment.postman_collection.json`  
+**Import:** Open Postman -> Import -> Upload this file.
+
+---
+
+# Endpoints
+
+## 1. Get Average Calories (Purchased Meals)
+Calculates the average calories of all meals with procedence `"purchased"`.
+
+**URL:** `GET /api/meals/analysis/average-calories`
+
+### Response:
+```json
+{
+    "statusCode": 200,
+    "message": "Average calories calculated successfully",
+    "data": {
+        "average_calories": "349.06"
+    }
+}
+````
+
+---
+
+## 2. Get Top Low-Calorie Favorites
+
+Returns the top 3 favorite dishes under 1000 calories, sorted by calories (descending).
+
+**URL:** `GET /api/meals/analysis/low-cal-favorites`
+
+### Response:
+
+```json
+{
+    "statusCode": 200,
+    "message": "Top 3 low-calorie favorites retrieved",
+    "data": [
+        {
+            "foodName": "Poke",
+            "dateConsumed": "2022-09-26",
+            "calories": 600
+        },
+        {
+            "foodName": "Pho",
+            "dateConsumed": "2022-11-12",
+            "calories": 599
+        },
+        {
+            "foodName": "Seafood Paella",
+            "dateConsumed": "2022-11-22",
+            "calories": 599
+        }
+    ]
+}
+```
+
+---
+
+## 3. Get Best Protein Value Meals
+
+Returns the top 3 meals with the highest protein-to-price ratio.
+
+**URL:** `GET /api/meals/analysis/protein-value`
+
+### Response:
+
+```json
+{
+    "statusCode": 200,
+    "message": "Best protein value meals retrieved",
+    "data": [
+        {
+            "mealName": "Hummus",
+            "proteinToDollarRatio": 3.881553398058252
+        },
+        {
+            "mealName": "Caprese Salad",
+            "proteinToDollarRatio": 3.790513833992095
+        },
+        {
+            "mealName": "Seafood Paella",
+            "proteinToDollarRatio": 3.7563352826510723
+        }
+    ]
+}
+```
