@@ -1,0 +1,76 @@
+{
+	"info": {
+		"_postman_id": "2f259340-a4a8-4542-a7f9-a5957df7520f",
+		"name": "TarkasoftInnovation_Assignment_postman_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28493095"
+	},
+	"item": [
+		{
+			"name": "Average Calories (Purchased Meals)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/meals/analysis/average-calories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"meals",
+						"analysis",
+						"average-calories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Top Low-Calorie Favorites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/meals/analysis/low-cal-favorites",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"meals",
+						"analysis",
+						"low-cal-favorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Best Protein Value Meals",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/meals/analysis/protein-value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"meals",
+						"analysis",
+						"protein-value"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
