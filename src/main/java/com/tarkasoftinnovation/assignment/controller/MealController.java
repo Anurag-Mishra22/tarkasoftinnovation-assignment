@@ -1,11 +1,9 @@
 package com.tarkasoftinnovation.assignment.controller;
 
-
 import com.tarkasoftinnovation.assignment.dto.ApiResponse;
 import com.tarkasoftinnovation.assignment.dto.LowCalFavoriteDto;
 import com.tarkasoftinnovation.assignment.dto.ProteinValueMealDto;
-
-import com.tarkasoftinnovation.assignment.service.impl.MealAnalysisService;
+import com.tarkasoftinnovation.assignment.service.IMealAnalysisService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,9 +17,9 @@ import java.util.Map;
 @RequestMapping("/api/meals")
 public class MealController {
 
-    private final MealAnalysisService service;
+    private final IMealAnalysisService service;
 
-    public MealController(MealAnalysisService service) {
+    public MealController(IMealAnalysisService service) {
         this.service = service;
     }
 
@@ -37,40 +35,36 @@ public class MealController {
         ApiResponse<Map<String, String>> response = new ApiResponse<>(
                 HttpStatus.OK.value(),
                 "Average calories calculated successfully",
-                data
-        );
+                data);
 
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     // Endpoint 2: Low Calorie Favorites
     @GetMapping("/analysis/low-cal-favorites")
-    public ResponseEntity<ApiResponse<List<LowCalFavoriteDto>>> getLowCalFavorites(){
+    public ResponseEntity<ApiResponse<List<LowCalFavoriteDto>>> getLowCalFavorites() {
         List<LowCalFavoriteDto> result = service.getTopLowCalorieFavorites();
-        if (result.isEmpty()){
+        if (result.isEmpty()) {
             return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse<>(
                     HttpStatus.NO_CONTENT.value(),
                     "No Favorite meals under 1000 calories",
-                    result
-            ));
+                    result));
         }
         ApiResponse<List<LowCalFavoriteDto>> response = new ApiResponse<>(
                 HttpStatus.OK.value(),
                 "Top 3 low-calorie favorites retrieved",
-                result
-        );
+                result);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
     // Endpoint 3: Protein Value
     @GetMapping("/analysis/protein-value")
-    public ResponseEntity<ApiResponse<List<ProteinValueMealDto>>> getProteinValue(){
+    public ResponseEntity<ApiResponse<List<ProteinValueMealDto>>> getProteinValue() {
         List<ProteinValueMealDto> result = service.getBestValueProteinMeals();
         ApiResponse<List<ProteinValueMealDto>> response = new ApiResponse<>(
                 HttpStatus.OK.value(),
                 "Best protein value meals retrieved",
-                result
-        );
+                result);
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 }
