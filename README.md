@@ -14,6 +14,11 @@ This is a Spring Boot application built with Java 21 that analyzes food consumpt
 4. Access endpoints at `localhost:8080`.
 
 ---
+# File And Folder Structure
+
+<img width="1210" height="1256" alt="image" src="https://github.com/user-attachments/assets/c6e19d5e-f21d-4b7d-852c-b7c9021f1778" />
+
+---
 
 # API Documentation
 A Postman collection is included in this repository for easy testing.
