@@ -13,7 +13,11 @@ This is a Spring Boot application built with Java 21 that analyzes food consumpt
 3. Run: `./mvnw spring-boot:run`
 4. Access endpoints at `localhost:8080`.
 
----
+
+# File and Folder Structure
+
+<img width="1205" height="1250" alt="image" src="https://github.com/user-attachments/assets/d78d94cb-ece1-4127-9798-7c7e240ccd73" />
+
 
 # API Documentation
 A Postman collection is included in this repository for easy testing.
@@ -21,7 +25,7 @@ A Postman collection is included in this repository for easy testing.
 **File:** `Tarkasoft_Assignment.postman_collection.json`  
 **Import:** Open Postman -> Import -> Upload this file.
 
----
+
 
 # Endpoints
 
