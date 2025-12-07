@@ -21,7 +21,7 @@ public class MealAnalysisService implements IMealAnalysisService {
         this.repository = repository;
     }
 
-    // Requirement 3: Average calories of "purchased" food
+    // Requirement: Calculates the average calories of all meals with procedence "purchased".
     public Double getAverageCaloriesPurchased() {
         return repository.getAllMeals().stream()
                 .filter(meal -> "purchased".equalsIgnoreCase(meal.procedence()))
@@ -30,7 +30,7 @@ public class MealAnalysisService implements IMealAnalysisService {
                 .orElse(0.0);
     }
 
-    // Requirement 4: Favorite dishes < 1000 cal, sorted desc, top 3
+    // Requirement: Returns the top 3 favorite dishes under 1000 calories, sorted by calories (descending)
     public List<LowCalFavoriteDto> getTopLowCalorieFavorites() {
         return repository.getAllMeals().stream()
                 .filter(Meal::favorite)
@@ -45,7 +45,7 @@ public class MealAnalysisService implements IMealAnalysisService {
                 .collect(Collectors.toList());
     }
 
-    // Requirement 5: Highest protein/cost ratio
+    // Requirement: Returns the top 3 meals with the highest protein-to-price ratio.
     public List<ProteinValueMealDto> getBestValueProteinMeals() {
         return repository.getAllMeals().stream()
                 .sorted(Comparator.comparingDouble((Meal m) -> m.protein() / m.price()).reversed())
