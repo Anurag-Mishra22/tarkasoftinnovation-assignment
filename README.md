@@ -13,6 +13,12 @@ This is a Spring Boot application built with Java 21 that analyzes food consumpt
 3. Run: `./mvnw spring-boot:run`
 4. Access endpoints at `localhost:8080`.
 
+## Running Tests
+Unit tests are included for the Service layer logic using JUnit 5 and Mockito.
+
+To run the tests, execute:
+
+`./mvnw test`
 
 # File and Folder Structure
 
